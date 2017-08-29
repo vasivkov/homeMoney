@@ -9,7 +9,7 @@ http://xmlns.jcp.org/xml/ns/javaee "
 
         <servlet>
             <servlet-name>Hello</servlet-name>
-            <servlet-class>/Users/vasya/IdeaProjects/HomeMoneyProject/src/main/java/HelloServlet</servlet-class>
+            <servlet-class>HelloServlet</servlet-class>
         </servlet>
 
         <servlet-mapping>
