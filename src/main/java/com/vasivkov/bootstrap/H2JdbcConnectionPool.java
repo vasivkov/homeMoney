@@ -32,13 +32,12 @@ public class H2JdbcConnectionPool {
             try {
                 jdbcConnectionPool.getConnection();
             } catch (SQLException e) {
-                LOGGER.error("Failed to create connection to H2");
+                LOGGER.error("Failed to create connection to H2", e);
             }
         }
     }
 
     public Connection getConnection() throws SQLException {
-
         return jdbcConnectionPool.getConnection();
     }
 }

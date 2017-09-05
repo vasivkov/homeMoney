@@ -12,12 +12,12 @@ import java.io.File;
 import java.sql.*;
 
 @WebListener
-public class H2ServletInitializer implements ServletContextListener {
+public class AppServletInitializer implements ServletContextListener {
     private static final String[] H2_TCP_SERVER_ARGS = {"-tcp", "-tcpAllowOthers", "-tcpPort", "9092"};
     private static final String[] H2_WEB_SERVER_ARGS = {"-web", "-webAllowOthers", "-webPort", "8082"};
     private Server tcpServer;
     private Server webServer;
-    private static final Logger LOGGER = Logger.getLogger(H2ServletInitializer.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(AppServletInitializer.class.getName());
 
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
@@ -30,7 +30,7 @@ public class H2ServletInitializer implements ServletContextListener {
             webServer = Server.createWebServer(H2_WEB_SERVER_ARGS).start();
             H2JdbcConnectionPool.getInstance().init();
         } catch (SQLException e) {
-            LOGGER.error("Failed to ");
+            LOGGER.error("Failed to start H2", e);
             throw new RuntimeException(e);
         }
     }
